@@ -1,0 +1,18 @@
+{
+  "name": "seguro-poliza-app",
+  "version": "1.0.0",
+  "description": "Aplicación para registrar seguros de póliza",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.19.2",
+    "sequelize": "^6.6.5",
+    "sqlite3": "^5.0.0"
+  },
+  "keywords": []
+}

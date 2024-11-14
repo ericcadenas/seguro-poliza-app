@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Seguro de Póliza</title>
+    <style>
+        body, form, input, select, button, textarea {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .spacer {
+            height: 75px;
+        }
+
+        h1 {
+            font-size: 1.2em;
+        }
+
+        form {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 6px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 0.8em;
+        }
+
+        form button {
+            width: 100%;
+            padding: 8px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            background-color: #6c757d;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+
+        .search-form {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .search-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .search-form input, .search-form select {
+            width: 100%;
+            padding: 6px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 0.8em;
+        }
+
+        .search-form button {
+            width: 100%;
+            padding: 8px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .search-form button:hover {
+            background-color: #218838;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .results-table, .results-table th, .results-table td {
+            border: 1px solid #ccc;
+        }
+
+        .results-table th, .results-table td {
+            padding: 8px;
+            text-align: left;
+            font-size: 0.8em;
+        }
+
+        .results-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spacer"></div>
+        <h1>Registrar Seguro de Póliza</h1>
+        <form id="insurance-form">
+            <label for="insurance">Seguro de Vida:</label>
+            <select id="insurance" name="insurance" required>
+                <option value="Rimac">Rimac</option>
+                <option value="Pacifico">Pacifico</option>
+                <option value="Interseguro">Interseguro</option>
+                <option value="MAPFRE">MAPFRE</option>
+                <option value="La Positiva">La Positiva</option>
+            </select>
+
+            <label for="dniAfiliado">DNI del Afiliado:</label>
+            <input type="text" id="dniAfiliado" name="dniAfiliado" required>
+
+            <label for="apellidoAfiliado">Apellido del Afiliado:</label>
+            <input type="text" id="apellidoAfiliado" name="apellidoAfiliado" required>
+
+            <label for="nombreAfiliado">Nombre del Afiliado:</label>
+            <input type="text" id="nombreAfiliado" name="nombreAfiliado" required>
+
+            <label for="insuranceAmount">Monto del Seguro:</label>
+            <input type="number" id="insuranceAmount" name="insuranceAmount" required>
+
+            <label for="incidentDate">Fecha del incidente:</label>
+            <input type="date" id="incidentDate" name="incidentDate" required>
+
+            <label for="incidentDetail">Detalle del incidente:</label>
+            <textarea id="incidentDetail" name="incidentDetail" rows="4" required></textarea>
+
+            <button type="submit">Guardar</button>
+        </form>
+
+        <a href="http://35.169.55.85:8084/" class="back-button">Regresar</a>
+
+        <form class="search-form" id="search-form">
+            <h2>Buscar Pólizas</h2>
+            <label for="searchInsurance">Seguro de Vida:</label>
+            <select id="searchInsurance" name="searchInsurance" required>
+                <option value="Rimac">Rimac</option>
+                <option value="Pacifico">Pacifico</option>
+                <option value="Interseguro">Interseguro</option>
+                <option value="MAPFRE">MAPFRE</option>
+                <option value="La Positiva">La Positiva</option>
+            </select>
+
+            <label for="searchYear">Año:</label>
+            <select id="searchYear" name="searchYear" required>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+            </select>
+
+            <label for="searchMonth">Mes:</label>
+            <select id="searchMonth" name="searchMonth" required>
+                <option value="1">01</option>
+                <option value="2">02</option>
+                <option value="3">03</option>
+                <option value="4">04</option>
+                <option value="5">05</option>
+                <option value="6">06</option>
+                <option value="7">07</option>
+                <option value="8">08</option>
+                <option value="9">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+
+            <button type="submit">Buscar</button>
+        </form>
+
+        <table class="results-table" id="results-table">
+            <thead>
+                <tr>
+                    <th>Seguro de Vida</th>
+                    <th>DNI del Afiliado</th>
+                    <th>Apellido del Afiliado</th>
+                    <th>Nombre del Afiliado</th>
+                    <th>Monto del Seguro</th>
+                    <th>Fecha del incidente</th>
+                    <th>Detalle del incidente</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        /*global fetch*/
+        document.getElementById('insurance-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const jsonData = {};
+
+            formData.forEach((value, key) => {
+                jsonData[key] = value;
+            });
+
+            const response = await fetch('/save-insurance', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                alert('Póliza guardada con éxito');
+                form.reset();
+            } else {
+                alert(`Error al guardar la póliza: ${result.message}`);
+            }
+        });
+
+        document.getElementById('search-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const insurance = document.getElementById('searchInsurance').value;
+            const year = document.getElementById('searchYear').value;
+            const month = document.getElementById('searchMonth').value;
+
+            const response = await fetch(`/search-insurance?insurance=${insurance}&year=${year}&month=${month}`);
+            const results = await response.json();
+            const resultsTableBody = document.getElementById('results-table').querySelector('tbody');
+
+            resultsTableBody.innerHTML = '';
+            results.forEach(result => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${result.insurance}</td>
+                    <td>${result.dniAfiliado}</td>
+                    <td>${result.apellidoAfiliado}</td>
+                    <td>${result.nombreAfiliado}</td>
+                    <td>${result.insuranceAmount}</td>
+                    <td>${new Date(result.incidentDate).toLocaleDateString()}</td>
+                    <td>${result.incidentDetail}</td>
+                `;
+                resultsTableBody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>
